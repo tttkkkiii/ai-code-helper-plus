@@ -255,6 +255,10 @@ CREATE INDEX idx_message_session ON chat_message (session_id, id);
 - 记忆是单机内存态缓存，多实例部署需改为共享存储
 - 未做请求限流与并发控制，也没有 Token 用量统计
 
+## 配套文档
+
+- [踩坑与解决方案](docs/troubleshooting.md) —— 30 个真实问题的完整记录，每条按「现象 → 根因 → 方案 → 实测效果」组织，覆盖环境构建、Spring 装配、性能定位、工具调用、SSE 传输与前端渲染六个环节。
+
 ## License
 
 [MIT](./LICENSE)

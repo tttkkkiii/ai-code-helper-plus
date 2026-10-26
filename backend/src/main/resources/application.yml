@@ -1,0 +1,68 @@
+spring:
+  # 本地默认激活 local profile，读取被 .gitignore 排除的 application-local.yml（真实密钥放那里）。
+  # 部署到服务器时用环境变量覆盖，例如 SPRING_PROFILES_ACTIVE=prod + 设置 DASHSCOPE_API_KEY
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+  application:
+   name: ai-code-helper
+  # 数据源：连接信息来自 application-local.yml 的 db 节点（真实值不入库），
+  # 部署时用环境变量提供，见文件末尾说明
+  datasource:
+    url: jdbc:postgresql://${db.host}:${db.port}/${db.database}
+    username: ${db.user}
+    password: ${db.password}
+    hikari:
+      maximum-pool-size: 10
+mybatis:
+  configuration:
+    # created_at -> createdAt 自动映射
+    map-underscore-to-camel-case: true
+langchain4j:
+  community:
+    dashscope:
+      chat-model:
+        model-name: qwen-max
+        api-key: ${DASHSCOPE_API_KEY}
+      streaming-chat-model:
+        model-name: qwen-max
+        api-key: ${DASHSCOPE_API_KEY}
+      embedding-model:
+        model-name: text-embedding-v4
+        api-key: ${DASHSCOPE_API_KEY}
+      scoring-model:
+        model-name: qwen-max
+        api-key: ${DASHSCOPE_API_KEY}
+server:
+  port: 8081
+  servlet:
+    context-path: /api
+# ===== 数据库连接 =====
+# 真实连接信息（host/port/database/user/password）放在 application-local.yml 的 db 节点下，
+# 该文件已被 .gitignore 排除，不进版本库。
+# 部署到服务器时不必改这里，用环境变量覆盖即可：
+#   db.host -> DB_HOST, db.port -> DB_PORT, db.database -> DB_DATABASE,
+#   db.user -> DB_USER, db.password -> DB_PASSWORD
+# PostgreSQL + pgvector 向量库配置（连接信息统一来自 db 节点，代码里按 pgvector.* 读取）
+pgvector:
+  host: ${db.host}
+  port: ${db.port}
+  database: ${db.database}
+  user: ${db.user}
+  password: ${db.password}
+  table: rag_vectors
+  dimension: 1024
+# —— 说明 ——
+# 这里不写任何真实连接信息。环境变量 DB_HOST / DB_PORT / DB_DATABASE / DB_USER / DB_PASSWORD
+# 会自动映射成 db.host / db.port / ...（Spring 的宽松绑定），优先级高于本地配置文件；
+# 所以服务器上只要设这几个环境变量即可，本文件不用改。
+# ===== 会话记忆配置 =====
+# 连接信息统一走 spring.datasource，这里只保留业务参数
+# 三张表的分工：
+#   rag_vectors   -> 文档知识片段 + 向量（语义记忆，靠相似度检索）
+#   chat_session  -> 会话目录（标题、时间）
+#   chat_message  -> 消息流水（纯文本，按 session_id + 顺序读取）
+chat-memory:
+  max-messages: 10               # 每次回放给模型的最大消息条数
+  title-max-length: 20           # 首次提问自动生成会话标题的截断长度
+
+

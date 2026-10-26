@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" fill="none">
+  <!-- 后排头发 -->
+  <ellipse cx="160" cy="168" rx="112" ry="126" fill="#b9a7f7" />
+
+  <!-- 身体 -->
+  <path d="M160 286c-62 0-96 42-104 114h208c-8-72-42-114-104-114Z" fill="#eef1ff" />
+  <!-- 衣领 -->
+  <path d="M124 292l36 30 36-30 20 16-56 46-56-46 20-16Z" fill="#dcd9ff" />
+
+  <!-- 脖子 -->
+  <rect x="145" y="246" width="30" height="46" rx="15" fill="#ffdccd" />
+
+  <!-- 脸 -->
+  <ellipse cx="160" cy="172" rx="88" ry="96" fill="#fff0e8" />
+  <!-- 耳朵 -->
+  <ellipse cx="74" cy="182" rx="12" ry="18" fill="#ffe4d8" />
+  <ellipse cx="246" cy="182" rx="12" ry="18" fill="#ffe4d8" />
+
+  <!-- 刘海 -->
+  <path
+    d="M76 168Q80 92 160 86Q240 92 244 168Q226 132 200 128Q190 152 172 150Q160 174 144 150Q126 152 116 128Q90 132 76 168Z"
+    fill="#b9a7f7" />
+  <!-- 呆毛 -->
+  <path d="M160 74c4-16 24-20 28-6" stroke="#b9a7f7" stroke-width="8" stroke-linecap="round" />
+
+  <!-- 眼睛 -->
+  <ellipse cx="127" cy="186" rx="13" ry="16" fill="#3f3a5c" />
+  <ellipse cx="193" cy="186" rx="13" ry="16" fill="#3f3a5c" />
+  <circle cx="123" cy="180" r="5" fill="#ffffff" />
+  <circle cx="189" cy="180" r="5" fill="#ffffff" />
+
+  <!-- 眉毛 -->
+  <path d="M112 160q14-9 30-3" stroke="#8f7fd0" stroke-width="4" stroke-linecap="round" />
+  <path d="M178 157q16-6 30 3" stroke="#8f7fd0" stroke-width="4" stroke-linecap="round" />
+
+  <!-- 腮红 -->
+  <ellipse cx="106" cy="212" rx="14" ry="8" fill="#ffb3c6" opacity=".55" />
+  <ellipse cx="214" cy="212" rx="14" ry="8" fill="#ffb3c6" opacity=".55" />
+
+  <!-- 嘴 -->
+  <path d="M151 224q9 9 18 0" stroke="#d98b8b" stroke-width="4" stroke-linecap="round" />
+
+  <!-- 耳机 -->
+  <path d="M60 168a100 100 0 0 1 200 0" stroke="#7c6bd6" stroke-width="10" stroke-linecap="round" />
+  <rect x="42" y="146" width="30" height="62" rx="15" fill="#7c6bd6" />
+  <rect x="248" y="146" width="30" height="62" rx="15" fill="#7c6bd6" />
+  <path d="M57 208q-18 14 0 30" stroke="#7c6bd6" stroke-width="8" stroke-linecap="round" />
+</svg>

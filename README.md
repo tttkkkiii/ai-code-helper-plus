@@ -9,6 +9,9 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-pgvector-336791)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
+> 📄 **[30 个真实问题的排障记录（1800 余行）→](docs/troubleshooting.md)**
+> 从环境构建、Spring 装配到工具调用与 SSE 传输，每条按「现象 → 根因 → 方案 → 实测效果」记录，含 101s → 11.7s、35s → 1.7s 等实测数据。
+
 ---
 
 ## 项目简介
